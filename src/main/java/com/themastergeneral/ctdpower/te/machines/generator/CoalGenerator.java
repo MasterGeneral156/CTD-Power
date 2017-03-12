@@ -21,9 +21,9 @@ import cofh.api.energy.IEnergyProvider;
 
 public class CoalGenerator extends TileEntity implements IInventory, IEnergyProvider, ITickable 
 {
-	private int increasePerTick = 500;
+	private int increasePerTick = 75;
 	
-	private int maxRF = 100000;
+	private int maxRF = 150000;
 	private int currentRF;
 	private int cooldown;
 	
@@ -253,10 +253,10 @@ public class CoalGenerator extends TileEntity implements IInventory, IEnergyProv
 				if(this.cooldown <= 0) {
 					if(this.inventory[0].getItem() == Item.getItemFromBlock(Blocks.COAL_BLOCK)) {
 						this.cooldown = 700;
-						this.increasePerTick = 500;
+						this.increasePerTick = 75;
 					} else {
 						this.cooldown = 70;
-						this.increasePerTick = 500;
+						this.increasePerTick = 75;
 					}
 					//this.decrStackSize(0, 1);
 					this.inventory[0].stackSize -= 1; //added this

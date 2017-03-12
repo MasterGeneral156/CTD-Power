@@ -74,9 +74,4 @@ public class GUICoalGenerator extends GuiContainer {
 	{
 		return (mouseX >= posX && mouseX < posX + sizeX && mouseY >= posY && mouseY < posY + sizeY);
 	}
-	public void drawScreen(int mouseX, int mouseY, float partialTicks)
-    {
-		super.drawScreen(mouseX, mouseY, partialTicks);
-		System.out.println("X: "+mouseX+" Y: "+mouseY);
-    }
 }
