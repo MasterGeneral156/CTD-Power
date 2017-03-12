@@ -1,0 +1,10 @@
+{
+    "variants": 
+	{
+        "normal":
+		{ 
+			"model": "ctdpower:wire_2" 
+		}
+    }
+
+}

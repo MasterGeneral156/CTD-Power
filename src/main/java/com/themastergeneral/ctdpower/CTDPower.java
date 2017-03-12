@@ -28,12 +28,14 @@ public class CTDPower
 	@EventHandler
     public void preInit(FMLPreInitializationEvent e) 
     {
+		proxy.registerTileEntities();
     	proxy.preInit(e);
     }
     @EventHandler
     public void init(FMLInitializationEvent e) 
     {
     	proxy.init(e);
+    	proxy.registerGuiHandler();
     }
     @EventHandler
     public void postInit(FMLPostInitializationEvent e) 

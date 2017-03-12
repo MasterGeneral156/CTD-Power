@@ -1,0 +1,7 @@
+{
+	"parent": "ctdpower:block/wire",
+	"textures": 
+	{
+		"txt": "ctdpower:blocks/wire_2"
+	}
+}

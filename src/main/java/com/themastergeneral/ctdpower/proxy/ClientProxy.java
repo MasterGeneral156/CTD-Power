@@ -1,8 +1,15 @@
 package com.themastergeneral.ctdpower.proxy;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import com.themastergeneral.ctdpower.blocks.ModBlocks;
 import com.themastergeneral.ctdpower.client.render.tile.RenderCable;
 import com.themastergeneral.ctdpower.te.cables.TileCable;
 
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.block.model.ModelResourceLocation;
+import net.minecraft.item.Item;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -11,17 +18,20 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
 public class ClientProxy extends CommonProxy
 {
-    public void preInit(FMLPreInitializationEvent e) 
-    {
-        super.preInit(e);
-    }
+    @Override
     public void init(FMLInitializationEvent e) 
     {
         super.init(e);
+        List<Item> items = new ArrayList<Item>();
+        items.add(Item.getItemFromBlock(ModBlocks.cable1));
+        items.add(Item.getItemFromBlock(ModBlocks.cable2));
+        items.add(Item.getItemFromBlock(ModBlocks.cable3));
+        for(int i = 0; i < items.size(); ++i)
+		{
+			Item item = items.get(i);
+			Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(item, 0, new ModelResourceLocation(item.getUnlocalizedName().substring(5), "inventory"));
+			System.out.printf("Wot" + item.getUnlocalizedName().substring(5), "inventory");
+		}
         ClientRegistry.bindTileEntitySpecialRenderer(TileCable.class, new RenderCable());
-    }
-    public void postInit(FMLPostInitializationEvent e) 
-    {
-        super.postInit(e);
     }
 }
