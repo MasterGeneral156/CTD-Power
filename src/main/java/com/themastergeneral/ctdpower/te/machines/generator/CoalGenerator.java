@@ -1,5 +1,7 @@
 package com.themastergeneral.ctdpower.te.machines.generator;
 
+import com.themastergeneral.ctdpower.config.Config;
+
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -21,9 +23,9 @@ import cofh.api.energy.IEnergyProvider;
 
 public class CoalGenerator extends TileEntity implements IInventory, IEnergyProvider, ITickable 
 {
-	private int increasePerTick = 75;
+	private int increasePerTick = Config.CoalRF;
 	
-	private int maxRF = 150000;
+	private int maxRF = Config.CoalGeneratorMaxBuffer;
 	private int currentRF;
 	private int cooldown;
 	
@@ -252,11 +254,11 @@ public class CoalGenerator extends TileEntity implements IInventory, IEnergyProv
 			if(canUse()) {
 				if(this.cooldown <= 0) {
 					if(this.inventory[0].getItem() == Item.getItemFromBlock(Blocks.COAL_BLOCK)) {
-						this.cooldown = 700;
-						this.increasePerTick = 75;
+						this.cooldown = Config.CoalBlockCooldown;
+						this.increasePerTick = Config.CoalRF;
 					} else {
-						this.cooldown = 70;
-						this.increasePerTick = 75;
+						this.cooldown = Config.CoalCooldown;
+						this.increasePerTick = Config.CoalRF;
 					}
 					//this.decrStackSize(0, 1);
 					this.inventory[0].stackSize -= 1; //added this

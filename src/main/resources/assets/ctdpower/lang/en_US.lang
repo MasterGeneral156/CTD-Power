@@ -1,0 +1,6 @@
+tile.wire_1.name=Low-Tier Power Cable
+tile.wire_2.name=Mid-Tier Power Cable
+tile.wire_3.name=High-Tier Power Cable
+tile.coal_generator.name=Coal Generator
+
+container.coal_generator=Coal Generator

@@ -29,18 +29,15 @@ public class BlockCoalGenerator extends BlockContainer {
 	}
 
 	@Override
-	public TileEntity createNewTileEntity(World worldIn, int meta) {
+	public TileEntity createNewTileEntity(World worldIn, int meta) 
+	{
 		return new CoalGenerator();
 	}
 	public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, @Nullable ItemStack heldItem, EnumFacing side, float hitX, float hitY, float hitZ)
 	{
-		if(!worldIn.isRemote) {
+		if(!worldIn.isRemote) 
+		{
 			playerIn.openGui(CTDPower.instance, GUIHandler.COAL_GENERATOR, worldIn, pos.getX(), pos.getY(), pos.getZ());
-			System.out.println(GUIHandler.COAL_GENERATOR);
-			System.out.println(worldIn);
-			System.out.println(pos.getX());
-			System.out.println(pos.getY());
-			System.out.println(pos.getZ());
 		}
 		return true;
 	}
@@ -62,5 +59,4 @@ public class BlockCoalGenerator extends BlockContainer {
 	public int getRenderType() {
 		return 3;
 	}
-
 }

@@ -1,5 +1,7 @@
 package com.themastergeneral.ctdpower;
 
+import org.apache.logging.log4j.Logger;
+
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.Mod.Instance;
@@ -21,6 +23,7 @@ public class CTDPower
 	
 	@Instance
     public static CTDPower instance = new CTDPower();
+	public static Logger logger;
 	
 	@SidedProxy(clientSide="com.themastergeneral.ctdpower.proxy.ClientProxy", serverSide="com.themastergeneral.ctdpower.proxy.ServerProxy")
     public static CommonProxy proxy;
